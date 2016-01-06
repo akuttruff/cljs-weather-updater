@@ -5,7 +5,6 @@
             [cljs-weather-updater.middleware :refer [load-middleware]]
             [noir.response :refer [redirect]]
             [noir.util.middleware :refer [app-handler]]
-            [clj-http.client :as client]
             [compojure.route :as route]))
 
 (defroutes app-routes
