@@ -22,10 +22,14 @@
      :portland (str base-url api-key portland)}))
 
 (defn handler [response]
-  (.log js/console (str (:boston url-map))))
+  (.log js/console (str response)))
 
-(defn get-weather []
+(defn get-boston-weather []
   (GET (:boston url-map)
+       {:handler handler}))
+
+(defn get-portland-weather []
+  (GET (:portland url-map)
        {:handler handler}))
 
 (defn header []
@@ -33,7 +37,8 @@
    [:h1 "Boston + Portland Weather Updater"]])
 
 (defn home []
-  (get-weather)
+  (get-boston-weather)
+  (get-portland-weather)
   [:div.flexbox
    [header]])
 
