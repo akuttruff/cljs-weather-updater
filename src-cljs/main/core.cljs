@@ -4,14 +4,13 @@
 
 (def api-key "625172310aff38a6")
 
-(def state (atom {:doc {} :saved? false}))
+(def state (atom {}))
 
 (defn set-value! [id value]
-  (swap! state assoc :saved? false)
-  (swap! state assoc-in [:doc id] value))
+  (swap! state assoc id value))
 
 (defn get-value [id]
-  (get-in @state [:doc id]))
+  (get-in @state id))
 
 (def url-map
   (let [base-url "http://api.wunderground.com/api/"
@@ -21,16 +20,19 @@
     {:boston (str base-url api-key boston)
      :portland (str base-url api-key portland)}))
 
-(defn handler [response]
-  (.log js/console (str response)))
+(defn boston-handler [response]
+  (set-value! :boston response))
+
+(defn portland-handler [response]
+  (set-value! :portland response))
 
 (defn get-boston-weather []
   (GET (:boston url-map)
-       {:handler handler}))
+       {:handler boston-handler}))
 
 (defn get-portland-weather []
   (GET (:portland url-map)
-       {:handler handler}))
+       {:handler portland-handler}))
 
 (defn header []
   [:div.title 
