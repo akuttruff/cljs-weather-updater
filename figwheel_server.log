@@ -1,0 +1,53 @@
+[0mCompiling "resources/public/js/app.js" from ["src-cljs"]...
+notifying browser that file changed:  resources/public/js/app.js
+notifying browser that file changed:  resources/public/js/goog/deps.js
+notifying browser that file changed:  out/main/core.js
+[32mSuccessfully compiled "resources/public/js/app.js" in 0.474 seconds.[0m
+[0mCompiling "resources/public/js/app.js" from ["src-cljs"]...
+notifying browser that file changed:  resources/public/js/app.js
+notifying browser that file changed:  resources/public/js/goog/deps.js
+notifying browser that file changed:  out/main/core.js
+[32mSuccessfully compiled "resources/public/js/app.js" in 3.288 seconds.[0m
+[0mCompiling "resources/public/js/app.js" from ["src-cljs"]...
+notifying browser that file changed:  resources/public/js/app.js
+notifying browser that file changed:  resources/public/js/goog/deps.js
+notifying browser that file changed:  out/main/core.js
+[32mSuccessfully compiled "resources/public/js/app.js" in 0.782 seconds.[0m
+[0mCompiling "resources/public/js/app.js" from ["src-cljs"]...
+notifying browser that file changed:  resources/public/js/app.js
+notifying browser that file changed:  resources/public/js/goog/deps.js
+notifying browser that file changed:  out/main/core.js
+[32mSuccessfully compiled "resources/public/js/app.js" in 0.848 seconds.[0m
+[0mCompiling "resources/public/js/app.js" from ["src-cljs"]...
+WARNING: Use of undeclared Var main.core/GET at line 17 src-cljs/main/core.cljs
+notifying browser that file changed:  resources/public/js/app.js
+notifying browser that file changed:  resources/public/js/goog/deps.js
+notifying browser that file changed:  out/main/core.js
+[32mSuccessfully compiled "resources/public/js/app.js" in 1.122 seconds.[0m
+[0mCompiling "resources/public/js/app.js" from ["src-cljs"]...
+[31mCompiling "resources/public/js/app.js" failed.
+[0mANALYSIS ERROR: Too many arguments to def at line 22 src-cljs/main/core.cljs on file src-cljs/main/core.cljs, line 22, column 1
+[32mSuccessfully compiled "resources/public/js/app.js" in 0.746 seconds.[0m
+[0mCompiling "resources/public/js/app.js" from ["src-cljs"]...
+notifying browser that file changed:  out/main/core.js
+[32mSuccessfully compiled "resources/public/js/app.js" in 0.307 seconds.[0m
+[0mCompiling "resources/public/js/app.js" from ["src-cljs"]...
+notifying browser that file changed:  out/main/core.js
+[32mSuccessfully compiled "resources/public/js/app.js" in 1.142 seconds.[0m
+[0mCompiling "resources/public/js/app.js" from ["src-cljs"]...
+notifying browser that file changed:  out/main/core.js
+[32mSuccessfully compiled "resources/public/js/app.js" in 0.787 seconds.[0m
+[0mCompiling "resources/public/js/app.js" from ["src-cljs"]...
+notifying browser that file changed:  out/main/core.js
+[32mSuccessfully compiled "resources/public/js/app.js" in 0.8 seconds.[0m
+[0mCompiling "resources/public/js/app.js" from ["src-cljs"]...
+notifying browser that file changed:  out/main/core.js
+[32mSuccessfully compiled "resources/public/js/app.js" in 2.322 seconds.[0m
+[0mCompiling "resources/public/js/app.js" from ["src-cljs"]...
+notifying browser that file changed:  resources/public/js/app.js
+notifying browser that file changed:  resources/public/js/goog/deps.js
+notifying browser that file changed:  out/main/core.js
+[32mSuccessfully compiled "resources/public/js/app.js" in 1.254 seconds.[0m
+[0mCompiling "resources/public/js/app.js" from ["src-cljs"]...
+notifying browser that file changed:  out/main/core.js
+[32mSuccessfully compiled "resources/public/js/app.js" in 0.374 seconds.[0m

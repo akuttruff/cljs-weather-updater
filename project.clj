@@ -1,31 +1,32 @@
-(defproject reagent-example "0.1.0-SNAPSHOT"
+(defproject cljs-weather-updater "0.1.0-SNAPSHOT"
  :description "FIXME: write description"
  :url "http://example.com/FIXME"
- :dependencies [[org.clojure/clojure "1.6.0"]
-                [lib-noir "0.8.4"]
-                [ring-server "0.3.1"]
+ :dependencies [[org.clojure/clojure "1.7.0"]
+                [org.clojure/clojurescript "1.7.170"]
+                [lib-noir "0.9.9"]
+                [ring-server "0.4.0"]
                 [selmer "0.6.8"]
                 [com.taoensso/timbre "3.2.1"]
                 [com.taoensso/tower "2.0.2"]
                 [markdown-clj "0.9.44"]
                 [environ "0.5.0"]
                 [noir-exception "0.2.2"]
-                [org.clojure/clojurescript "0.0-2280"]
+                [clj-http "2.0.0"]
                 [reagent "0.4.2"]
                 [cljs-ajax "0.2.6"]]
 
- :repl-options {:init-ns reagent-example.repl}
- :plugins [[lein-ring "0.8.10"]
-           [lein-environ "0.5.0"]
-           [lein-cljsbuild "1.0.3"]]
- :ring {:handler reagent-example.handler/app
-        :init    reagent-example.handler/init
-        :destroy reagent-example.handler/destroy}
+ :repl-options {:init-ns cljs-weather-updater.repl}
+ :plugins [[lein-ring "0.9.7"]
+           [lein-environ "1.0.1"]
+           [lein-cljsbuild "1.1.2"]
+           [lein-figwheel "0.5.0-2"]]
+ :ring {:handler cljs-weather-updater.handler/app}
 
  :cljsbuild
  {:builds
   [{:id "dev"
     :source-paths ["src-cljs"]
+    :figwheel true
     :compiler
     {:optimizations :none
      :output-to "resources/public/js/app.js"
