@@ -5,8 +5,9 @@ pom.xml.asc
 /classes/
 /target/
 /checkouts/
-/public/js/
+/resources/public/js/
 .lein-deps-sum
 .lein-repl-history
 .lein-plugins/
 .lein-failures
+figwheel_server.log
