@@ -1,5 +1,5 @@
 [ClojureScript Reagent](https://reagent-project.github.io/) Weather Updater
-=============================
+----------------------------------------
 
 This demo application pulls from [Yogthos' Reagent-Example](https://github.com/yogthos/reagent-example) project and uses the [Weather Underground API](http://www.wunderground.com/weather/api/) to pull weather conditions for a variety of locations.
 
