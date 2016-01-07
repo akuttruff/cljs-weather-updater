@@ -10,7 +10,7 @@
   (swap! state assoc id value))
 
 (defn get-value [id]
-  (get-in @state id))
+  (get @state id))
 
 (def url-map
   (let [base-url "http://api.wunderground.com/api/"
@@ -21,10 +21,22 @@
      :portland (str base-url api-key portland)}))
 
 (defn boston-handler [response]
-  (set-value! :boston response))
+  (let [data (-> response (get "current_observation"))
+        weather (get data "weather")
+        temp (get data "temp_f")
+        icon (get data "icon")]
+    (set-value! :boston {:weather weather
+                         :temp temp
+                         :icon icon})))
 
 (defn portland-handler [response]
-  (set-value! :portland response))
+  (let [data (-> response (get "current_observation"))
+        weather (get data "weather")
+        temp (get data "temp_f")
+        icon (get data "icon")]
+    (set-value! :portland {:weather weather
+                         :temp temp
+                         :icon icon})))
 
 (defn get-boston-weather []
   (GET (:boston url-map)
@@ -42,7 +54,11 @@
   (get-boston-weather)
   (get-portland-weather)
   [:div.flexbox
-   [header]])
+   [header]
+   [:p "Boston weather: "]
+   [:label (str (get-value :boston))]
+   [:p "Portland weather: "]
+   [:label (str (get-value :portland))]])
 
 ;;start the app
 (reagent/render-component [home] (.getElementById js/document "app"))
