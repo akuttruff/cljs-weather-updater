@@ -12,6 +12,9 @@
 (defn get-value [id]
   (get @state id))
 
+(defn get-in-value [path]
+  (get-in @state path))
+
 (def url-map
   (let [base-url "http://api.wunderground.com/api/"
         api-key "625172310aff38a6"
@@ -27,7 +30,7 @@
         icon (get data "icon")]
     (set-value! :boston {:weather weather
                          :temp temp
-                         :icon icon})))
+                         :icon-url (str "http://icons.wxug.com/i/c/i/" icon ".gif")})))
 
 (defn portland-handler [response]
   (let [data (-> response (get "current_observation"))
@@ -35,30 +38,47 @@
         temp (get data "temp_f")
         icon (get data "icon")]
     (set-value! :portland {:weather weather
-                         :temp temp
-                         :icon icon})))
+                           :temp temp
+                           :icon-url (str "http://icons.wxug.com/i/c/i/" icon ".gif")})))
 
-(defn get-boston-weather []
-  (GET (:boston url-map)
-       {:handler boston-handler}))
-
-(defn get-portland-weather []
-  (GET (:portland url-map)
-       {:handler portland-handler}))
+(defn temp-diff []
+  (let [boston-temp (get-in @state [:boston :temp])
+        portland-temp (get-in @state [:portland :temp])
+        difference (Math/round (int (- portland-temp boston-temp)))
+        contrast (if (> difference 0)
+                   "warmer "
+                   "colder ")]
+    [:p (str "It is " (Math/abs difference) "° " contrast " in Portland right now than it is in Boston.")]))
 
 (defn header []
   [:div.title 
    [:h1 "Boston + Portland Weather Updater"]])
 
+(defn init []
+  (GET (:boston url-map)
+       {:handler boston-handler})
+  (GET (:portland url-map)
+       {:handler portland-handler}))
+
 (defn home []
-  (get-boston-weather)
-  (get-portland-weather)
-  [:div.flexbox
+  (init)
+  [:div.flexbox-column
    [header]
-   [:p "Boston weather: "]
-   [:label (str (get-value :boston))]
-   [:p "Portland weather: "]
-   [:label (str (get-value :portland))]])
+   [:div.flexbox-row
+    [:div.left
+     [:h2 "Boston: "]
+     [:div.flexbox-column
+      [:label (get-in-value [:boston :weather])]
+      [:label (str (get-in-value [:boston :temp]) "° ")]
+      [:img.icon {:src (get-in-value [:boston :icon-url])}]]]
+    [:div.right
+     [:h2 "Portland: "]
+     [:div.flexbox-column
+      [:label (get-in-value [:portland :weather])]
+      [:label (str (get-in-value [:portland :temp]) "° ")]
+      [:img.icon {:src (get-in-value [:portland :icon-url])}]]]]
+   [temp-diff]])
 
 ;;start the app
 (reagent/render-component [home] (.getElementById js/document "app"))
+              

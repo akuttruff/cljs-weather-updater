@@ -1,4 +1,9 @@
-.flexbox {
+.flexbox-row {
+    display: flex;
+    flex-direction: row;
+}
+
+.flexbox-column {
     display: flex;
     flex-direction: column;
 }
@@ -8,9 +13,17 @@
 }
 
 p {
-    color: blue;
+    color: #666;
 }
 
-h1 {
-    color: blue;
+h2 {
+    color: #2b2b2b2;
+}
+
+.icon {
+    width: 50px;
+}
+
+.left {
+    padding-right: 50px;
 }
