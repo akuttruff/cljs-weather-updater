@@ -2,7 +2,7 @@
  (:require [reagent.core :as reagent :refer [atom]]
            [ajax.core :refer [GET]]))
 
-(def api-key "625172310aff38a6")
+(def api-key "")
 
 (def state (atom {}))
 
@@ -17,7 +17,7 @@
 
 (def url-map
   (let [base-url "http://api.wunderground.com/api/"
-        api-key "625172310aff38a6"
+        api-key ""
         boston "/conditions/q/MA/Boston.json"
         portland "/conditions/q/OR/Portland.json"]
     {:boston (str base-url api-key boston)
